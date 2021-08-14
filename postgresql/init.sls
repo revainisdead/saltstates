@@ -13,7 +13,9 @@ postgresql_up:
         #- reload: True
         - require:
             - pkg: postgresql
-            - file: /etc/postgresql/*/main/postgresql.conf
+        #    - file: '/etc/postgresql/*/main/postgresql.conf'
+        #- watch:
+        #    - file: '/etc/postgresql/*/main/postgresql.conf'
 
 pg_user-gtpaper:
     postgres_user.present:
