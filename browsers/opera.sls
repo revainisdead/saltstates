@@ -1,7 +1,7 @@
 # Installing Opera https://linuxconfig.org/how-to-install-opera-web-browser-on-linux
 #
 # `sudo apt purge opera-stable` to test installing it again
-opera-stable:
+opera:
     #cmd.run:
     #    - name: wget -qO- https://deb.opera.com/archive.key | sudo apt-key add -
 
@@ -12,6 +12,6 @@ opera-stable:
             - pkg: opera-stable
 
     pkg.installed:
-        - name: opera-stable
+        - name: opera-stable # package name
         - require:
-            - pkgrepo: opera-stable
+            - pkgrepo: opera # refers to ID

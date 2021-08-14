@@ -13,3 +13,10 @@ christian-settings:
         - runas: christian
         #- watch:
             #- git: christian-settings
+
+/home/christian/bin:
+    file.directory:
+        - user: christian
+        - group: christian
+        - dir_mode: 755
+        - makedirs: False # Assume user (parent) directory exists, don't try to create

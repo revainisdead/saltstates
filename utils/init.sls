@@ -10,3 +10,4 @@ utils:
             - net-tools
             - iproute2 # ip command
             - tmux
+            - flameshot # screenshots
