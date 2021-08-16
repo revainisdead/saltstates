@@ -6,6 +6,13 @@
 # from the git repo to the proper location.
 # (Or, for developing in repo, and moving updated files to salt master)
 
+set -e
+# Code that will STOP script on a non-zero (non-successful) exit code
+set +e
+# Code that will NOT stop script on a non-zero exit code
+
+set -e
+
 exclude_on_copy="install.sh collect.sh"
 
 # Gives the ability to call the script from another directory, this
