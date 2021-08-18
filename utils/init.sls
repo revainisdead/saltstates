@@ -11,3 +11,5 @@ utils:
             - iproute2 # ip command
             - tmux
             - flameshot # screenshots
+
+# vim: set ft=yaml:

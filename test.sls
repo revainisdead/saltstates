@@ -6,3 +6,5 @@ touch /home/christian/test.txt:
     file.append:
         - text: |
             this is a sentence
+
+# vim: set ft=yaml:

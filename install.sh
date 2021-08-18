@@ -16,11 +16,11 @@ set -e
 exclude_on_copy="install.sh collect.sh"
 
 # Gives the ability to call the script from another directory, this
-# will move the current directory aka the location of the script
-pushd $(dirname $0)
+# will move the current directory
+pushd $(dirname $0) > /dev/null
 SCRIPT_PATH=$(pwd -P)
+popd > /dev/null # return to original directory calling script from
 
-# Path because could be file or directory
 for path in $SCRIPT_PATH/*
 do
     pathbase=`basename $path`

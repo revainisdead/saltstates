@@ -4,7 +4,7 @@ include:
 
 christian-settings:
     git.latest:
-        - name: https://github.com/revainisdead/settings.git
+        - name: git@github-revainisdead:revainisdead/settings.git
         - rev: master
         - target: /home/christian/bin/settings
         - user: christian
@@ -20,3 +20,5 @@ christian-settings:
         - group: christian
         - dir_mode: 755
         - makedirs: False # Assume user (parent) directory exists, don't try to create
+
+# vim: set ft=yaml:

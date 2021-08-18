@@ -15,3 +15,5 @@ opera:
         - name: opera-stable # package name
         - require:
             - pkgrepo: opera # refers to ID
+
+# vim: set ft=yaml:
