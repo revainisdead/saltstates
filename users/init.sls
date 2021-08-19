@@ -30,7 +30,7 @@ user-{{ username }}:
             - lpadmin
             #- docker
 
-{% if user.get(ssh_keys', []) %}
+{% if user.get('ssh_keys', []) %}
 # Sets up .ssh/authorized-keys file for servers (ssh incoming to machine)
 authorized-keys-christian:
     ssh_auth:

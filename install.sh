@@ -38,7 +38,8 @@ real_data_path="${pillar_path}/real-data.sls"
 
 # After everything is moved, overwrite data.sls placeholder data
 if [ -f $real_data_path ]; then
-    # Overwrite data.sls with contents of real_data.sls, name as data.sls
+    # Overwrite data.sls with contents of real-data.sls, name as data.sls
+    echo Success: Overwriting placeholder data.sls with real-data.sls.
     sudo mv $real_data_path "$pillar_path/data.sls"
 else
     echo Required file does not exist $real_data_path
