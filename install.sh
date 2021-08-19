@@ -13,7 +13,8 @@ set +e
 
 set -e
 
-exclude_on_copy="install.sh collect.sh"
+exclude_on_copy="install.sh collect.sh yaml_tag_add_all.sh"
+#exclude_on_copy=$(git ls-files *.sh)
 
 # Gives the ability to call the script from another directory, this
 # will move the current directory
@@ -31,3 +32,14 @@ do
         sudo cp -r $pathbase /srv/salt/
     fi
 done
+
+pillar_path=/srv/salt/pillar-example
+real_data_path="${pillar_path}/real-data.sls"
+
+# After everything is moved, overwrite data.sls placeholder data
+if [ -f $real_data_path ]; then
+    # Overwrite data.sls with contents of real_data.sls, name as data.sls
+    sudo mv $real_data_path "$pillar_path/data.sls"
+else
+    echo Required file does not exist $real_data_path
+fi
