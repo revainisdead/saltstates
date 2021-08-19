@@ -7,6 +7,7 @@ postgres-data:
 users-data:
     christian:
         fullname: Christian Hall
+        default_group: christian
         password: <password hash>
         ssh_keys:
             - <ssh public key>

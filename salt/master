@@ -1,0 +1,50 @@
+
+# The address of the interface to bind to:
+interface: 172.31.1.91
+#interface: ec2-18-224-30-112.us-east-2.compute.amazonaws.com
+
+#####      File Server settings      #####
+##########################################
+# Salt runs a lightweight file server written in zeromq to deliver files to
+# minions. This file server is built into the master daemon and does not
+# require a dedicated port.
+
+# The file server works on environments passed to the master, each environment
+# can have multiple root directories, the subdirectories in the multiple file
+# roots cannot match, otherwise the downloaded files will not be able to be
+# reliably ensured. A base environment is required to house the top file.
+# Example:
+# file_roots:
+#   base:
+#     - /srv/salt/
+#   dev:
+#     - /srv/salt/dev/services
+#     - /srv/salt/dev/states
+#   prod:
+#     - /srv/salt/prod/services
+#     - /srv/salt/prod/states
+#
+file_roots:
+  base:
+    - /srv/salt
+
+# The master_roots setting configures a master-only copy of the file_roots dictionary,
+# used by the state compiler.
+#master_roots:
+#  base:
+#    - /srv/salt-master
+
+#####         Pillar settings        #####
+##########################################
+# Salt Pillars allow for the building of global data that can be made selectively
+# available to different minions based on minion grain filtering. The Salt
+# Pillar is laid out in the same fashion as the file server, with environments,
+# a top file and sls files. However, pillar data does not need to be in the
+# highstate format, and is generally just key/value pairs.
+pillar_roots:
+  base:
+    - /srv/pillar
+
+#ext_pillar:
+#  - hiera: /etc/hiera.yaml
+#  - cmd_yaml: cat /etc/salt/yaml

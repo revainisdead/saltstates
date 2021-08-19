@@ -1,0 +1,55 @@
+##### Primary configuration settings #####
+##########################################
+# This configuration file is used to manage the behavior of the Salt Minion.
+# With the exception of the location of the Salt Master Server, values that are
+# commented out but have an empty line after the comment are defaults that need
+# not be set in the config. If there is no blank line after the comment, the
+# value is presented as an example and is not the default.
+
+# Set the location of the salt master server. If the master server cannot be
+# resolved, then the minion will fail to start.
+master: ec2-18-224-30-112.us-east-2.compute.amazonaws.com
+
+# Set the file client. The client defaults to looking on the master server for
+# files, but can be directed to look at the local file directory setting
+# defined below by setting it to "local". Setting a local file_client runs the
+# minion in masterless mode.
+#file_client: local # RUN FROM LOCAL MACHINE
+
+# The file directory works on environments passed to the minion, each environment
+# can have multiple root directories, the subdirectories in the multiple file
+# roots cannot match, otherwise the downloaded files will not be able to be
+# reliably ensured. A base environment is required to house the top file.
+# Example:
+# file_roots:
+#   base:
+#     - /srv/salt/
+#   dev:
+#     - /srv/salt/dev/services
+#     - /srv/salt/dev/states
+#   prod:
+#     - /srv/salt/prod/services
+#     - /srv/salt/prod/states
+#
+#file_roots:
+#  base:
+#    - /srv/salt
+#     #- /home/christian/ # RUN FROM LOCAL MACHINE
+
+# The Salt pillar is searched for locally if file_client is set to local. If
+# this is the case, and pillar data is defined, then the pillar_roots need to
+# also be configured on the minion:
+pillar_roots:
+  base:
+    - /srv/pillar/
+
+# The state_verbose and state_output settings can be used to change the way
+# state system data is printed to the display. By default all data is printed.
+# The state_verbose setting can be set to True or False, when set to False
+# all data that has a result of True and no changes will be suppressed.
+state_verbose: True
+
+# Fingerprint of the master public key to validate the identity of your Salt master
+# before the initial key exchange. The master fingerprint can be found by running
+# "salt-key -f master.pub" on the Salt master.
+master_finger: 'ed:10:da:76:51:5b:c8:17:d6:a8:89:9a:fe:1b:c6:fe:5a:48:30:38:23:70:6c:75:10:30:50:d6:02:a4:00:7b'
