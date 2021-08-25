@@ -28,7 +28,7 @@ do
     if [[ ! $exclude_on_copy =~ $pathbase ]]; then
 
         if [ $pathbase == "pillar-example" ]; then
-            echo [Special case for pillar-example, move to its data to /srv/pillar]
+            echo [Special case for pillar-example, move its data to /srv/pillar]
             echo Copied $pathbase to /srv/pillar
 
             if [ ! -d /srv/pillar ]; then

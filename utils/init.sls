@@ -1,4 +1,3 @@
-
 utils:
     pkg.installed:
         - pkgs:
@@ -6,6 +5,7 @@ utils:
             - openssh-client
             - curl
             - htop
+            - tig
             #- npm
             - net-tools
             - iproute2 # ip command

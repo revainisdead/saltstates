@@ -1,12 +1,13 @@
 base:
     'system76-pc.localdomain':
         - test
-        - utils
         - users
         - browsers
+        - utils
+        - peek
         - vim
-        #- git
-        #- docker
+        - git
+        - docker
         #- python3
         #- nodejs
         - postgresql
