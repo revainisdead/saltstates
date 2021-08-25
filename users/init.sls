@@ -1,6 +1,9 @@
 wheel:
     group.present
 
+docker:
+    group.present
+
 {% if grains['os'] == 'Ubuntu' %}
 sudo:
     group.present
@@ -28,14 +31,14 @@ user-{{ username }}:
             {% endif %}
             - adm
             - lpadmin
-            #- docker
+            - docker # Give ability to run docker commands with sudo
 
 {% if user.get('ssh_keys', []) %}
 # Sets up .ssh/authorized-keys file for servers (ssh incoming to machine)
-authorized-keys-christian:
+authorized-keys-{{ username }}:
     ssh_auth:
         - present
-        - user: christian
+        - user: {{ username }}
         - names:
             {% for key in user.ssh_keys %}
             - {{ key }}
