@@ -8,7 +8,8 @@ base:
         - vim
         - git
         - docker
-        #- python3
+        - python2
+        - python3
         #- nodejs
         - postgresql
 

@@ -39,7 +39,7 @@ docker-prerequisites:
             - software-properties-common # Work with PPA repositories better on Ubuntu
 {% endif %}
 
-docker:
+docker-repo:
     pkgrepo.managed:
         - name: deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu {{salt['grains.get']('oscodename', 'focal')}} stable
         - file: /etc/apt/sources.list.d/docker.list
@@ -53,6 +53,6 @@ docker:
             - containerd.io
         - require:
             - pkg: docker-prerequisites # Using the id of a pkg.installed section here
-            - pkgrepo: docker
+            - pkgrepo: docker-repo
 
 # vim: set ft=yaml:
