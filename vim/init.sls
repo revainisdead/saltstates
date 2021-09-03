@@ -60,4 +60,11 @@ plugin-supertab-repo:
         - target: /home/christian/.vim/bundle/supertab
         - user: christian
 
+plugin-vim-commentary-repo:
+    git.latest:
+        - name: git@github.com:tpope/vim-commentary.git
+        - rev: master
+        - target: /home/christian/.vim/bundle/vim-commentary
+        - user: christian
+
 # vim: set ft=yaml:
