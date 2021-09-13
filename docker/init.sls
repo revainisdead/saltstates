@@ -55,4 +55,9 @@ docker-repo:
             - pkg: docker-prerequisites # Using the id of a pkg.installed section here
             - pkgrepo: docker-repo
 
+# Install docker-compose:
+#   - https://docs.docker.com/compose/install/
+# Add command completion:
+#   - https://docs.docker.com/compose/completion/
+
 # vim: set ft=yaml:
